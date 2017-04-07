@@ -7,4 +7,5 @@ LABEL description="This Dockerfile for Windows Server Core with git installed vi
 
 COPY install_win10sdk.ps1 /
 SHELL ["powershell"]
-RUN ./install_win10sdk.ps1
+RUN ./install_win10sdk.ps1 ; \
+    remove-item ./install_win10sdk.ps1
