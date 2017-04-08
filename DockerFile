@@ -1,11 +1,12 @@
 # Always use a specific version when submitting.  
 # If the upstream changes, update and push to trigger a new build.
-FROM travisez13/microsoft.windowsservercore.git:0.3.3
+FROM travisez13/microsoft.windowsservercore.git:latest
 LABEL maintainer='Travis Plunk <github@ez13.net>'
 LABEL readme.md="https://github.com/TravisEz13/docker/blob/master/microsoft/windowsservercore/git/readme.md"
 LABEL description="This Dockerfile for Windows Server Core with git installed via chocolatey.  See readme on docker hub for licensing."
 
 COPY install_win10sdk.ps1 /
+COPY dockerInstall.psm1 /
 SHELL ["powershell"]
 RUN ./install_win10sdk.ps1 ; \
     remove-item ./install_win10sdk.ps1
