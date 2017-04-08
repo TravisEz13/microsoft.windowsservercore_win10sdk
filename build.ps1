@@ -4,7 +4,7 @@ param(
     [switch]
     $NoCache
 )
-$repoName = "$psscriptroot\reponame.ps1"
+$repoName = &"$psscriptroot\reponame.ps1"
 $tagParams = @()
 foreach($tag in $tags)
 {

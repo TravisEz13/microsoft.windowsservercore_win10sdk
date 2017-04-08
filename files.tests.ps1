@@ -1,4 +1,4 @@
-$repoName = "$psscriptroot\reponame.ps1"
+$repoName = &"$psscriptroot\reponame.ps1"
 Describe "Verify containers contain expected files" {
     $repos = @(
         @{
@@ -22,6 +22,7 @@ Describe "Verify containers contain expected files" {
         start-process -Wait -filepath docker `
             -argumentlist @(
                 'run'
+		'--rm'
                 "${repo}:latest"
                 'powershell'
                 $powershellArguments
