@@ -1,5 +1,3 @@
-# Always use a specific version when submitting.  
-# If the upstream changes, update and push to trigger a new build.
 FROM travisez13/microsoft.windowsservercore.git:latest
 LABEL maintainer='Travis Plunk <github@ez13.net>'
 LABEL readme.md="https://github.com/TravisEz13/docker/blob/master/microsoft/windowsservercore/git/readme.md"
@@ -10,3 +8,4 @@ COPY dockerInstall.psm1 /
 SHELL ["powershell"]
 RUN ./install_win10sdk.ps1 ; \
     remove-item ./install_win10sdk.ps1
+COPY containerTests/ containerTests/
