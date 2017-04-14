@@ -17,6 +17,9 @@ Describe "Verify containers contain expected files" {
         @{
             file = (Get-File -filter "${env:ProgramFiles(x86)}\Windows Kits\10\Include\activation.h")
         }
+        @{
+            file = (Get-File -filter "${env:ProgramFiles(x86)}\WiX Toolset v3.10\bin\heat.exe")
+        }
     )
 
     it "should contain <file>" -TestCases $repos {
